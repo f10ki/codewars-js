@@ -27,7 +27,7 @@ function solution(number) {
 
 console.log(solution(10));
 
-// #2
+// #3
 
 function spinWords(string) {
   //TODO Have fun :)
@@ -68,7 +68,7 @@ console.log(
   spinWordsMySecondVersion("Hey fellow warriors")
 );
 
-// # 3
+// # 4
 function arrayDiff(a, b) {
   let aSet = new Set(a);
   console.log(aSet);
@@ -91,3 +91,38 @@ function arrayDiff2(a, b) {
 }
 
 console.log(arrayDiff2([1, 1, 2, 2, 2, 3], [2]));
+
+// # 5, Vowel Count, 7 kyu
+
+function getCount(str) {
+  const vowelsList = "aeiou";
+  let counter = 0;
+
+  // Convert string of vowels to array.
+  // Loop through array of vowels.
+  // At each step, loop through array of initial string and count number of vowels (intersections).
+
+  vowelsList.split("").forEach((vowelsListChar) => {
+    str.split("").forEach((strChar) => {
+      vowelsListChar === strChar ? (counter += 1) : "";
+    });
+  });
+
+  return counter;
+}
+
+console.log(
+  "# 5, Vowel Count, 7 kyu",
+  getCount("I'm newcoming coder, mu-ha-ha")
+);
+
+// This is shortest solution
+function getCount2(str) {
+  const vowelsList = "aeiaou";
+  return str.split("").filter((c) => vowelsList.includes(c)).length;
+}
+
+console.log(
+  "# 5, Vowel Count, 7 kyu, ver2",
+  getCount2("I'm newcoming coder, mu-ha-ha")
+);
