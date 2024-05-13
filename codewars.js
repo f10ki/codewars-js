@@ -126,3 +126,33 @@ console.log(
   "# 5, Vowel Count, 7 kyu, ver2",
   getCount2("I'm newcoming coder, mu-ha-ha")
 );
+
+// # 6, Check the exam,  7 kyu
+function checkExam(array1, array2) {
+  let counter = 0;
+
+  for (let i = 0; i <= array1.length - 1; i += 1) {
+    if (array1[i] === array2[i]) {
+      counter += 4;
+    }
+    if (array1[i] != array2[i] && array2[i]) {
+      counter -= 1;
+    }
+  }
+
+  return Math.max(counter, 0);
+}
+
+console.log("#7, checkExam", checkExam([1, 2, 3], [1, , 1]));
+
+// This is shortest solution
+
+// checkExam2 = (x, y) =>
+//   (x = y.reduce((s, e, i) => s + (e === x[i] ? 4 : e === "" ? 0 : -1), 0)) > 0
+//     ? x
+//     : 0;
+
+console.log(
+  "#7, checkExam2, shortest version",
+  checkExam2([1, 2, 3], [1, , 1])
+);
