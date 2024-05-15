@@ -152,7 +152,41 @@ console.log("#7, checkExam", checkExam([1, 2, 3], [1, , 1]));
 //     ? x
 //     : 0;
 
+// console.log(
+//   "#7, checkExam2, shortest version",
+//   checkExam2([1, 2, 3], [1, , 1])
+// );
+
+// # 8, Counting Duplicates, 6 kyu
+// https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/javascript
+
+function duplicateCount(text) {
+  // Make all letters lowercase, convert text to array, and sort array to prepare for tricky algorithm.
+  const tArray = text.toLowerCase().split("").sort();
+
+  let arrayOfDuplicates = [];
+
+  for (let i = 1; i <= tArray.length - 1; i += 1) {
+    // If tArray doesn't exist or is empty then exit
+    if (!tArray || tArray.length === 0) {
+      return;
+    }
+
+    // If the current element is the same as the previous element, then this is a duplicate, and if this is not a known duplicate, then add it to a array of unique duplicates.
+    if (
+      tArray[i] === tArray[i - 1] &&
+      tArray[i] != arrayOfDuplicates[arrayOfDuplicates.length - 1]
+    ) {
+      // Add unique duplicates to array
+      arrayOfDuplicates.push(tArray[i]);
+    }
+  }
+
+  // Get the length of the array of unique duplicates to know the number of duplicated characters in the original text.
+  return arrayOfDuplicates.length;
+}
+
 console.log(
-  "#7, checkExam2, shortest version",
-  checkExam2([1, 2, 3], [1, , 1])
+  "# 8, Counting Duplicates, duplicateCount:",
+  duplicateCount("dcaba2a12")
 );
